@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Maskdetect</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+<style>
+body
+{
+	margin:18px;
+}
+
+</style>	
+</head>
+
+<body>
+    <h1>Mask Detection</h1>
+<br>
+    <button class="btn btn-primary" type="button" id="camera" onclick="camera()">Click to check</button>
+
+	<video id="video" width="640" height="480" autoplay style="display: none"></video>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+	function camera()
+	{
+		$('#video').show();
+		$('#camera').prop('disabled','true');
+var video = document.getElementById('video');
+
+// Get access to the camera!
+if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    // Not adding `{ audio: true }` since we only want video now
+    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+        //video.src = window.URL.createObjectURL(stream);
+        video.srcObject = stream;
+        video.play();
+    });
+}
+}
+</script>
+
+
+</body>
+
+</html>
